@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>js playground</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="jsxgraph.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+
+    <!-- <div id="jxgbox" class="jxgbox" style="width:500px; height:500px">
+  </div> -->
+
+    <script
+      type="text/javascript"
+      charset="UTF-8"
+      src="jsxgraphcore.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.00.0/jsxgraph.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+    <div id="app">
+      <!-- App.vue -->
+
+      <v-app>
+        <!-- Sizes your content based upon application components -->
+        <v-content>
+          <!-- Provides the application the proper gutter -->
+          <v-container fluid>
+            <!-- If using vue-router -->
+            <!-- <router-view></router-view> -->
+
+            <v-list-item>
+              <v-list-item-content>
+                <v-list-item-title>Grafico</v-list-item-title>
+
+                <v-card class="mx-auto" height="500px" outlined id="area_grafico"> </v-card>
+              </v-list-item-content>
+            </v-list-item>
+
+            <v-list-item two-line>
+              <v-list-item-content>
+                <v-list-item-title>Parametri</v-list-item-title>
+                <v-list-item-subtitle
+                  >Modificando questi parametri il grafico sarà ridisegnato in
+                  tempo reale</v-list-item-subtitle
+                >
+
+                <v-row justify="space-between">
+                  <v-col cols="12" md="4">
+                    <v-form ref="form">
+                      <v-slider
+                        v-model="ampiezza"
+                        step="0.05"
+                        class="align-center"
+                        :max="7"
+                        :min="0"
+                        hide-details
+                      >
+                        <template v-slot:append>
+                          <v-text-field
+                            v-model="ampiezza"
+                            class="mt-0 pt-0"
+                            hide-details
+                            single-line
+                            type="number"
+                            style="width: 60px;"
+                          ></v-text-field>
+                        </template>
+                      </v-slider>
+
+                      <v-slider
+                      v-model="frequenza"
+                      step="0.05"
+                      class="align-center"
+                      :max="10"
+                      :min="0"
+                      hide-details
+                    >
+                      <template v-slot:append>
+                        <v-text-field
+                          v-model="frequenza"
+                          class="mt-0 pt-0"
+                          hide-details
+                          single-line
+                          type="number"
+                          style="width: 60px;"
+                        ></v-text-field>
+                      </template>
+                    </v-slider>
+                    
+                    <v-slider
+                    v-model="time_multiplier"
+                    step="0.05"
+                    class="align-center"
+                    :max="300"
+                    :min="100"
+                    hide-details
+                  >
+                    <template v-slot:append>
+                      <v-text-field
+                        v-model="time_multiplier"
+                        class="mt-0 pt-0"
+                        hide-details
+                        single-line
+                        type="number"
+                        style="width: 60px;"
+                      ></v-text-field>
+                    </template>
+                  </v-slider>
+
+
+                  <v-slider
+                  v-model="freqarm_count"
+                  step="1"
+                  class="align-center"
+                  :max="100"
+                  :min="0"
+                  hide-details
+                >
+                  <template v-slot:append>
+                    <v-text-field
+                      v-model="freqarm_count"
+                      class="mt-0 pt-0"
+                      hide-details
+                      single-line
+                      type="number"
+                      style="width: 60px;"
+                    ></v-text-field>
+                  </template>
+                </v-slider>
+
+                    </v-form>
+                  </v-col>
+                </v-row>
+              </v-list-item-content>
+            </v-list-item>
+          </v-container>
+        </v-content>
+
+        <v-footer app>
+          <!-- -->
+        </v-footer>
+      </v-app>
+    </div>
+
+    <script src="app.js" async defer></script>
+  </body>
+</html>
